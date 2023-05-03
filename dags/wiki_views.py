@@ -29,8 +29,8 @@ dag = DAG(
 
 def _print_context(**context):
     # print(context)
-    start=context["execution_date"]
-    end=context["next_execution_date"]
+    start = context["execution_date"]
+    end = context["next_execution_date"]
     print(f'start: {start}, end: {end}')
 
 def _get_data(year, month, day, hour, output_path, **context):
@@ -39,7 +39,6 @@ def _get_data(year, month, day, hour, output_path, **context):
         f"{year}/{year}-{month:0>2}/"
         f"pageviews-{year}{month:0>2}{day:0>2}-{hour:0>2}0000.gz"
     )
-    print(url)
     request.urlretrieve(url, output_path)
 
 get_data=PythonOperator(
